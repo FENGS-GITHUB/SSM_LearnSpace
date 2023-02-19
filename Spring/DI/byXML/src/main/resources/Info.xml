@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    依赖配置文件包-->
+    <import resource="School.xml"/>
+    <import resource="Class.xml"/>
+
+
+<!--    容器对象-->
+
+    <bean id="Info1" class="DI_by_xml.fengs.Informations.Informations">
+        <property name="ID" value="01" />
+        <property name="firstName" value="Lee" />
+        <property name="lastName"  value="Vinck" />
+        <property name="schoolInfo" ref="School1" />
+        <property name="classInfo" ref="Class1" />
+    </bean>
+
+    <bean id="Info2" class="DI_by_xml.fengs.Informations.Informations">
+        <constructor-arg name="classInfo" ref="Class1"/>
+        <constructor-arg name="schoolInfo" ref="School1"/>
+        <constructor-arg name="ID" value="02"/>
+        <constructor-arg name="firstName" value="Wang"/>
+        <constructor-arg name="lastName" value="Hong"/>
+
+
+    </bean>
+
+</beans>
